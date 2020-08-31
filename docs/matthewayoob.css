@@ -1,0 +1,119 @@
+matthewayoob.css
+/* The classes */
+body {
+    display: flex;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+    min-height: 596px;
+    margin: 0;
+    box-sizing: border-box;
+    background:  #FEFCFF;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+
+    max-width: 480px;
+    width: 100%;
+    height: auto;
+    padding: 0 24px;
+}
+
+hr {
+    display: block;
+    box-sizing: border-box;
+
+    height: 40px;
+    margin: 0;
+    border: none;
+    border-top: 1px solid #FEFCFF;
+    background: none;
+    margin-top: 22px;
+}
+
+ul.links {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin: 0; 
+    padding: 0;
+    list-style: none;
+}
+
+ul.links>li {
+    margin-right: 32px; 
+
+    font-size: 16px;
+    font-family: 'PT Serif', Georgia, serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #2E3542;
+    line-height: 32px;
+    margin-bottom: 22px;
+}
+
+/* Text */
+
+h1 {
+    font-size: 30px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #2E3542;
+    line-height: 36px;
+}
+
+p {
+    font-size: 16px;
+    font-family: 'PT Serif', Georgia, serif;
+    font-style: normal;
+    font-weight: normal;
+    color: #2E3542;
+    line-height: 32px;
+}
+
+::selection {
+    background: #adb1ff;
+    color: #FFFAEA; 
+}
+  
+::-moz-selection {
+    background: #adb1ff;
+    color: #FFFAEA; 
+}
+
+a {
+    color: #adb1ff
+}
+
+a:hover {
+    color:#adb1ff;
+}
+
+a.footer {
+    color: #969AA0;
+}
+
+a.footer:hover {
+    color: #C0C2C6;
+}
+
+/* Media Queries */
+
+@media only screen and (max-width: 400px) {
+    body {
+        height: auto;
+    }
+    .content {
+        justify-content: flex-start;
+        padding: 48px 24px;
+    }
+}
