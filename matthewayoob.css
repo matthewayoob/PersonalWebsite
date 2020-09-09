@@ -55,7 +55,7 @@ ul.links>li {
     font-family: 'PT Serif', Georgia, serif;
     font-style: normal;
     font-weight: normal;
-    color: #2E3542;
+    color: #C70039;
     line-height: 32px;
 }
 
@@ -82,12 +82,12 @@ p {
 
 ::selection {
     background: #adb1ff;
-    color: #FFFAEA; 
+    color: #C70039; 
 }
   
 ::-moz-selection {
     background: #adb1ff;
-    color: #FFFAEA; 
+    color: #C70039; 
 }
 
 a {
