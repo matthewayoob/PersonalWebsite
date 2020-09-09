@@ -50,15 +50,13 @@ ul.links {
 }
 
 ul.links>li {
-    margin-right: 32px; 
-
+    margin: auto;
     font-size: 16px;
     font-family: 'PT Serif', Georgia, serif;
     font-style: normal;
     font-weight: normal;
     color: #2E3542;
     line-height: 32px;
-    margin-bottom: 22px;
 }
 
 /* Text */
