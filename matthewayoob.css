@@ -116,5 +116,9 @@ a.footer:hover {
     .content {
         justify-content: flex-start;
         padding: 48px 24px;
+        max-width: 85% !important;
     }
+
+}
+
 }
