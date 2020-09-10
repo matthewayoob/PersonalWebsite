@@ -1,5 +1,10 @@
 matthewayoob.css
 /* The classes */
+ img {
+  max-width: 80%;
+  height: auto;
+}
+
 body {
     display: flex;
     justify-content: center;
