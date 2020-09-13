@@ -1,8 +1,9 @@
 matthewayoob.css
 /* The classes */
  img {
-  max-width: 80%;
-  height: auto;
+    max-width: 40%;
+    height: auto;
+    align-self: center;
 }
 
 body {
