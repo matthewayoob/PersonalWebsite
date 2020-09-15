@@ -1,10 +1,5 @@
 matthewayoob.css
 /* The classes */
-.image {
-    max-width: 40%;
-    height: auto;
-    align-self: center;
-}
 
 body {
     display: flex;
@@ -114,6 +109,13 @@ a.footer {
 a.footer:hover {
     color: #C0C2C6;
 }
+
+.image {
+    max-width: 40%;
+    height: auto;
+    align-self: center;
+}
+
 
 /* Queries */
 
