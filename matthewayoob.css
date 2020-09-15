@@ -111,9 +111,9 @@ a.footer:hover {
 }
 
 .image {
-    max-width: 40%;
-    height: auto;
-    align-self: center;
+    max-width: 40% !important;
+    height: auto !important;
+    align-self: center !important;
 }
 
 
