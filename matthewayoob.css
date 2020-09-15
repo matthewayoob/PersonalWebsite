@@ -110,13 +110,6 @@ a.footer:hover {
     color: #C0C2C6;
 }
 
-img {
-    max-width: 40% !important;
-    height: auto !important;
-    align-self: center !important;
-}
-
-
 /* Queries */
 
 @media only screen and (max-width: 400px) {
@@ -128,6 +121,11 @@ img {
         padding: 48px 24px;
         max-width: 85% !important;
     }
+img {
+    max-width: 80% !important;
+    height: auto !important;
+    align-self: center !important;
+}
 
 }
 
