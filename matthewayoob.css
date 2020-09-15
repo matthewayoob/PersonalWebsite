@@ -110,7 +110,7 @@ a.footer:hover {
     color: #C0C2C6;
 }
 
-.image {
+img {
     max-width: 40% !important;
     height: auto !important;
     align-self: center !important;
