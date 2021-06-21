@@ -85,12 +85,12 @@ p {
 }
 
 ::selection {
-    background: #adb1ff;
+    background: #fcdcde;
     color: #000000; 
 }
   
 ::-moz-selection {
-    background: #adb1ff;
+    background: #fcdcde;
     color: #C70039; 
 }
 
