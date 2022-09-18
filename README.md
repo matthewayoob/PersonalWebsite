@@ -1,2 +1,1 @@
-# mayoob
-personal website
+my personal website
