@@ -17,8 +17,10 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 700px;
+    width: 90%;
     padding: 20px;
     box-sizing: border-box;
+    margin: 40px auto;
 }
 
 /* Headers and Paragraphs */
@@ -42,6 +44,7 @@ p {
     margin-bottom: 20px;
 }
 
+/* Lists */
 ul {
     list-style-type: none;
     padding: 0;
@@ -72,6 +75,28 @@ ul.links li {
     font-size: 16px;
 }
 
+/* Horizontal Rule Styling */
+hr {
+    border: none;
+    border-top: 1px solid #adb1ff;
+    margin: 40px 0;
+}
+
+/* Text Selection Styling */
+::selection {
+    background-color: #adb1ff;
+    color: #FFFAEA;
+}
+
+/* Footer Links */
+a.footer {
+    color: #969AA0;
+}
+
+a.footer:hover {
+    color: #C0C2C6;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .content {
@@ -88,4 +113,11 @@ ul.links li {
     }
 }
 
-  
+@media only screen and (max-width: 400px) {
+    body {
+        height: auto;
+    }
+    .content {
+        padding: 20px;
+    }
+}
