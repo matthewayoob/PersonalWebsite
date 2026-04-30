@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matthew Ayoob</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --cream:#FAF8F4;
+    --ink:#1A1714;
+    --muted:#6B6760;
+    --accent:#C4873A;
+    --accent-light:#F2E4CF;
+    --divider:#E8E4DC;
+    --tag-bg:#EDEAE3;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--cream);
+    color:var(--ink);
+    font-size:16px;
+    line-height:1.7;
+  }
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:1.25rem 3rem;
+    background:rgba(250,248,244,0.92);
+    backdrop-filter:blur(8px);
+    z-index:100;
+    border-bottom:1px solid transparent;
+    transition:border-color .3s;
+  }
+  .nav-logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.15rem;
+    letter-spacing:0.02em;
+    color:var(--ink);
+    text-decoration:none;
+  }
+  .nav-links{display:flex;gap:2.5rem;list-style:none}
+  .nav-links a{
+    font-size:0.82rem;
+    font-weight:500;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted);
+    text-decoration:none;
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--ink)}
+
+  /* HERO */
+  .hero{
+    min-height:100vh;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    align-items:center;
+    padding:7rem 3rem 4rem;
+    gap:4rem;
+    max-width:1200px;
+    margin:0 auto;
+  }
+  .hero-text h1{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(2.8rem,5vw,4.5rem);
+    line-height:1.1;
+    font-weight:700;
+    margin-bottom:1.5rem;
+    letter-spacing:-0.01em;
+  }
+  .hero-text h1 em{
+    font-style:normal;
+    color:var(--accent);
+  }
+  .hero-text p{
+    font-size:1.05rem;
+    color:var(--muted);
+    max-width:480px;
+    margin-bottom:2rem;
+    font-weight:300;
+    line-height:1.85;
+  }
+  .hero-links{display:flex;flex-wrap:wrap;gap:0.75rem}
+  .btn{
+    display:inline-flex;align-items:center;gap:0.5rem;
+    padding:0.6rem 1.4rem;
+    border-radius:2rem;
+    font-size:0.85rem;
+    font-weight:500;
+    text-decoration:none;
+    transition:all .2s;
+    letter-spacing:0.03em;
+  }
+  .btn-primary{
+    background:var(--ink);
+    color:var(--cream);
+    border:1px solid var(--ink);
+  }
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent)}
+  .btn-outline{
+    background:transparent;
+    color:var(--ink);
+    border:1px solid var(--divider);
+  }
+  .btn-outline:hover{border-color:var(--ink);background:var(--tag-bg)}
+
+  /* HERO RIGHT CARDS */
+  .hero-visual{display:flex;flex-direction:column;gap:1.5rem}
+  .hero-card{
+    background:#fff;
+    border:1px solid var(--divider);
+    border-radius:16px;
+    padding:1.5rem;
+    width:100%;
+  }
+  .hero-card-label{
+    font-size:0.72rem;
+    font-weight:500;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:0.6rem;
+  }
+  .degree-list{display:flex;flex-direction:column;gap:0.45rem;margin-top:0.1rem}
+  .degree-item{font-size:0.88rem;color:var(--ink);font-weight:400}
+  .degree-item span{color:var(--muted);font-weight:300}
+  .company-row{display:flex;gap:0.6rem;flex-wrap:wrap;align-items:center;margin-top:0.1rem}
+  .company-pill{
+    background:var(--tag-bg);
+    border:1px solid var(--divider);
+    border-radius:2rem;
+    padding:0.3rem 1rem;
+    font-size:0.82rem;
+    font-weight:500;
+    color:var(--ink);
+  }
+
+  /* SECTION BASE */
+  section{
+    max-width:1000px;
+    margin:0 auto;
+    padding:5rem 3rem;
+  }
+  .section-label{
+    font-size:0.72rem;
+    font-weight:500;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin-bottom:0.85rem;
+  }
+  .section-title{
+    font-family:'Playfair Display',serif;
+    font-size:clamp(1.8rem,3vw,2.6rem);
+    font-weight:700;
+    line-height:1.2;
+    margin-bottom:3rem;
+    letter-spacing:-0.01em;
+  }
+  hr.divider{border:none;border-top:1px solid var(--divider);margin:0}
+
+  /* EXPERIENCE — timeline list */
+  .exp-list{display:flex;flex-direction:column}
+  .exp-item{
+    display:grid;
+    grid-template-columns:160px 1fr;
+    gap:2rem;
+    padding:2.25rem 0;
+    border-bottom:1px solid var(--divider);
+  }
+  .exp-item:last-child{border-bottom:none}
+  .exp-company{
+    font-size:0.82rem;
+    font-weight:500;
+    color:var(--ink);
+    letter-spacing:0.02em;
+  }
+  .exp-period{
+    font-size:0.78rem;
+    color:var(--muted);
+    margin-top:0.2rem;
+  }
+  .exp-role{
+    font-family:'Playfair Display',serif;
+    font-size:1.1rem;
+    font-weight:700;
+    margin-bottom:0.5rem;
+  }
+  .exp-desc{
+    font-size:0.92rem;
+    color:var(--muted);
+    font-weight:300;
+    line-height:1.75;
+  }
+
+  /* ABOUT */
+  .about-grid{display:grid;grid-template-columns:240px 1fr;gap:4rem;align-items:start}
+  .about-photo{width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:16px;border:1px solid var(--divider)}
+  .about-body p{
+    font-size:1.05rem;
+    color:var(--muted);
+    margin-bottom:1.25rem;
+    font-weight:300;
+    line-height:1.9;
+  }
+  .about-body p:last-child{margin-bottom:0}
+
+  footer{
+    text-align:center;
+    padding:2rem 3rem;
+    font-size:0.8rem;
+    color:rgba(26,23,20,0.35);
+    border-top:1px solid var(--divider);
+  }
+
+  @media(max-width:768px){
+    nav{padding:1rem 1.5rem}
+    .nav-links{gap:1.5rem}
+    .hero{grid-template-columns:1fr;padding:6rem 1.5rem 3rem;gap:2.5rem}
+    .hero-visual{display:none}
+    section{padding:3.5rem 1.5rem}
+    .exp-item{grid-template-columns:1fr;gap:0.4rem}
+    .about-grid{grid-template-columns:1fr}
+    .about-photo{max-width:180px}
+  }
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a class="nav-logo" href="#hero">Matthew Ayoob</a>
+  <ul class="nav-links">
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div id="hero" class="hero">
+  <div class="hero-text">
+    <h1>Building tech that <em>includes</em> everyone.</h1>
+    <p>Stanford graduate in CS (HCI &amp; AI) and Music. Data Scientist at Meta Instagram. Passionate about AI, accessibility, and human-centered design.</p>
+    <div class="hero-links">
+      <a href="mailto:matthewayoob@alumni.stanford.edu" class="btn btn-primary">Get in touch</a>
+      <a href="https://www.linkedin.com/in/matthewayoob/" class="btn btn-outline" target="_blank">LinkedIn</a>
+      <a href="https://github.com/matthewayoob" class="btn btn-outline" target="_blank">GitHub</a>
+      <a href="https://instagram.com/ayomatthew" class="btn btn-outline" target="_blank">Art</a>
+      <a href="https://www.youtube.com/c/MatthewAyoob/videos" class="btn btn-outline" target="_blank">Music</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-card">
+      <div class="hero-card-label">Education &middot; Stanford University</div>
+      <div class="degree-list">
+        <div class="degree-item">BS &nbsp;<span>Computer Science: Human-Computer Interaction</span></div>
+        <div class="degree-item">BA &nbsp;<span>Music: Vocal Performance</span></div>
+        <div class="degree-item">MS &nbsp;<span>Computer Science: Artificial Intelligence</span></div>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">Industry experience</div>
+      <div class="company-row">
+        <span class="company-pill">Meta</span>
+        <span class="company-pill">YC-backed Co-founder</span>
+        <span class="company-pill">Chief Product Officer</span>
+        <span class="company-pill">Apple</span>
+        <span class="company-pill">Microsoft</span>
+        <span class="company-pill">Pi Network</span>
+        <span class="company-pill">Coframe AI</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Career</div>
+  <div class="section-title">Where I've worked</div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Meta (Instagram)</div>
+        <div class="exp-period">2025 – Present</div>
+      </div>
+      <div>
+        <div class="exp-role">Data Scientist, Relevance Labs</div>
+        <div class="exp-desc">Partner with Product and Engineering on early-stage bets in Instagram's ranking and recommendation systems. Translate complex behavioral signals from large-scale ML systems into product direction — combining statistical modeling, experimentation, and exploratory analysis to surface what's actually driving outcomes. Build forecasting and monitoring frameworks that give teams early visibility into whether a system is performing as intended.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">AI Startup (YC W25)</div>
+        <div class="exp-period">2024 – 2025</div>
+      </div>
+      <div>
+        <div class="exp-role">Chief Product Officer</div>
+        <div class="exp-desc">Defined product vision and owned zero-to-one execution at a YC-backed AI startup — translating frontier model capabilities into concrete user workflows, prototyping with LLMs as core infrastructure, and iterating concept to working product through eval-driven feedback loops. Embedded safety-conscious thinking from day one with evaluation harnesses to catch model regressions before they shipped.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Stanford CS Dept.</div>
+        <div class="exp-period">2023 – 2025</div>
+      </div>
+      <div>
+        <div class="exp-role">Teaching Assistant</div>
+        <div class="exp-desc">Designed structured learning frameworks for 2,000+ students that made abstract technical concepts concrete and actionable. Ran a tight feedback loop between observed learner behavior and instructional design — prioritizing transferable reasoning skills over prescriptive fixes.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Pi Network</div>
+        <div class="exp-period">2023</div>
+      </div>
+      <div>
+        <div class="exp-role">Product Manager</div>
+        <div class="exp-desc">Led a developer education initiative enabling 34M+ users to build and deploy applications on Pi. Translated an emerging technology into accessible UX and product workflows, bridging the gap between platform capability and non-technical audiences.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Apple</div>
+        <div class="exp-period">Intern</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer</div>
+        <div class="exp-desc">Built Vision Pro accessibility features for blind users — new technology enabling inclusive spatial computing experiences through close collaboration across engineering, design, and product.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Microsoft</div>
+        <div class="exp-period">Intern</div>
+      </div>
+      <div>
+        <div class="exp-role">Software Engineer</div>
+        <div class="exp-desc">Worked on gRPC protocol and low-latency systems infrastructure, contributing to performance-critical backend systems within a large-scale engineering organization.</div>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div>
+        <div class="exp-company">Coframe AI</div>
+        <div class="exp-period">Intern</div>
+      </div>
+      <div>
+        <div class="exp-role">Product Manager</div>
+        <div class="exp-desc">Technical documentation and metric road-mapping at an AI/ML startup building LLM-driven UI optimization and continuous A/B testing systems.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">Beyond the screen</div>
+  <div class="section-title">A little about me</div>
+  <div class="about-grid">
+    <img src="MatthewPhoto.jpeg" alt="Matthew Ayoob" class="about-photo">
+    <div class="about-body">
+      <p>I'm a Stanford graduate with a deep belief that the most meaningful technology is the kind that brings people in, not leaves them out. Three degrees later — a BS in CS:HCI, a BA in Music, and an MS in CS:AI — I've learned that the best products, like the best performances, are felt before they're understood.</p>
+      <p>My work sits at the intersection of machine learning, product thinking, and human behavior. Whether designing experiments for Instagram's ranking systems or prototyping with frontier models, I'm always looking for the human angle.</p>
+      <p>Outside of work I make visual art, perform music, and think a lot about accessibility — the conviction that technology should expand possibility for everyone, not just the people it was built for.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Matthew Ayoob</p>
+</footer>
+
+<script>
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.style.borderBottomColor = window.scrollY > 20 ? 'var(--divider)' : 'transparent';
+  });
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const id = a.getAttribute('href').slice(1);
+      const el = document.getElementById(id);
+      if (el) { e.preventDefault(); el.scrollIntoView({ behavior: 'smooth' }); }
+    });
+  });
+</script>
+
+</body>
+</html>
